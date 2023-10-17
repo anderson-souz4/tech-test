@@ -19,10 +19,3 @@ This is a Task Manager project developed using the Spring framework. It offers C
 
 - [Java](https://www.java.com/) installed (version X.X or higher)
 - [Maven](https://maven.apache.org/) installed
-
-## Settings
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/seu-usuario/seu-projeto.git
