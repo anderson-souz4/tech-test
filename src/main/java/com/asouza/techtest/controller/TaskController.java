@@ -1,6 +1,7 @@
 package com.asouza.techtest.controller;
 
 import com.asouza.techtest.model.Task;
+import com.asouza.techtest.model.dto.TaskDTO;
 import com.asouza.techtest.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,23 +17,22 @@ public class TaskController {
     private TaskService taskService;
 
     @PostMapping
-    public ResponseEntity<Task> create(@RequestBody Task task){
-        return ResponseEntity.ok().body(taskService.create(task));
+    public ResponseEntity<TaskDTO> create(@RequestBody TaskDTO taskDTO){
+        TaskDTO savedTaskDTO = taskService.create(taskDTO);
+        return ResponseEntity.ok(savedTaskDTO);
     }
 
     @GetMapping
-    public ResponseEntity<List<Task>> readAll(){
-        return ResponseEntity.ok().body(taskService.readAll());
+    public ResponseEntity<List<TaskDTO>> readAll(){
+        List<TaskDTO> taskDTOs = taskService.readAll();
+        return ResponseEntity.ok().body(taskDTOs);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Task> update(@PathVariable Long id, @RequestBody Task task){
-        return ResponseEntity.ok().body(taskService.update(id, task));
-    }
+    public ResponseEntity<TaskDTO> update(@PathVariable Long id, @RequestBody TaskDTO taskDTO){
+        TaskDTO updatedTaskDTO = taskService.update(id, taskDTO);
 
-    @PutMapping("/updateStatus/{id}")
-    public ResponseEntity<Task> updateStatus(@PathVariable Long id, @RequestBody String status){
-        return ResponseEntity.ok().body(taskService.updateStatus(id, status));
+        return ResponseEntity.ok(updatedTaskDTO);
     }
 
     @DeleteMapping("/{id}")
