@@ -17,5 +17,5 @@ This is a Task Manager project developed using the Spring framework. It offers C
 
 ## Prerequisites
 
-- [Java](https://www.java.com/) installed (version X.X or higher)
+- [Java](https://www.java.com/) installed (version 11 or higher)
 - [Maven](https://maven.apache.org/) installed
